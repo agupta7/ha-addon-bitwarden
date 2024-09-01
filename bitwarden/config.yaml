@@ -3,7 +3,7 @@ name: Vaultwarden (Bitwarden)
 version: dev
 slug: bitwarden
 description: Open source password management solution
-url: https://github.com/hassio-addons/addon-bitwarden
+url: https://github.com/agupta7/ha-addon-bitwarden
 codenotary: codenotary@frenck.dev
 webui: "[PROTO:ssl]://[HOST]:[PORT:7277]"
 init: false
@@ -21,8 +21,10 @@ options:
   ssl: true
   certfile: fullchain.pem
   keyfile: privkey.pem
-  push_relay_uri: https://push.bitwarden.com
-  push_identity_uri: https://push.bitwarden.com
+  # Don't force a default in config.yaml below in case the Vaultwarden folks need to update the default value(s).
+  # See the PR inegrating Push Notifications for more: https://github.com/dani-garcia/vaultwarden/pull/3304
+  #push_relay_uri: Vaultwarden assumes a default (https://push.bitwarden.com today) if you don't set it
+  #push_identity_uri: Vaultwarden assues a default (https://identity.bitwarden.com today) if you don't set it
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   ssl: bool
